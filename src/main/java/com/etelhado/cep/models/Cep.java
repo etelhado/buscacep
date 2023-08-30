@@ -1,27 +1,20 @@
 package com.etelhado.cep.models;
 
-import org.hibernate.validator.constraints.Length;
-
-import jakarta.validation.constraints.NotBlank;
-
-public class Estado {
-
+public class Cep {
 	private Integer codigo;
-	@NotBlank(message = "Informe uma Sigla")
-	@Length(min = 2, max = 2, message = "A sigla deve conter 2 caracteres")
 	private String sigla;
-	@NotBlank(message = "Informe o nome do estado")
 	private String nome;
+	CidadeCep cidade;
 
-	public Estado() {
-		super();
+	public Cep() {
 	}
 
-	public Estado(Integer codigo, String sigla, String nome) {
+	public Cep(Integer codigo, String sigla, String nome, CidadeCep cidade) {
 		super();
 		this.codigo = codigo;
 		this.sigla = sigla;
 		this.nome = nome;
+		this.cidade = cidade;
 	}
 
 	public Integer getCodigo() {
@@ -46,6 +39,14 @@ public class Estado {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public CidadeCep getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(CidadeCep cidade) {
+		this.cidade = cidade;
 	}
 
 }
